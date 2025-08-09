@@ -2,6 +2,7 @@ package com.madimadica.gaming;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Main {
@@ -13,8 +14,8 @@ public class Main {
             String baseName = key.split("!")[0];
             System.out.println(key);
             String rawJson = api.getManifestExport(key);
-            var dirPath = Paths.get(System.getProperty("user.home"), ".madimadica", "warframe", "exports");
-            var filePath = dirPath.resolve(baseName);
+            Path dirPath = Paths.get(System.getProperty("user.home"), ".madimadica", "warframe", "exports");
+            Path filePath = dirPath.resolve(baseName);
             try {
                 Files.createDirectories(dirPath);
                 Files.writeString(filePath, rawJson);

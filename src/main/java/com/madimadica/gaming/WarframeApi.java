@@ -23,6 +23,7 @@ public class WarframeApi {
     public List<String> getIndexFiles() {
         return getIndexFiles("en");
     }
+
     public List<String> getIndexFiles(String languageCode) {
         URI url = URI.create("https://origin.warframe.com/PublicExport/index_" + languageCode + ".txt.lzma");
         HttpRequest req = HttpRequest.newBuilder(url).build();
